@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A synthetic, privacy-first connected vehicle health dashboard demonstration.">
+  <title>Rambo Vehicle Console — Synthetic Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="demo-data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="app-header">
+      <div class="brand"><div class="brand-mark" aria-hidden="true">R</div><div><p class="eyebrow">Connected vehicle UX · Portfolio project</p><h1>Rambo Vehicle Console</h1><p class="subtitle">Privacy-first vehicle health and telemetry visualization.</p></div></div>
+      <div class="demo-badge"><i></i><span><strong>Synthetic demo</strong><small>No live vehicle connection</small></span></div>
+    </header>
+
+    <nav aria-label="Dashboard views">
+      <button class="active" data-view="overview">Overview</button>
+      <button data-view="battery">Battery</button>
+      <button data-view="powertrain">Engine + Trans</button>
+      <button data-view="diagnostics">Diagnostics</button>
+      <button data-view="architecture">Architecture</button>
+    </nav>
+
+    <section id="overview" class="view active">
+      <div class="grid top-grid">
+        <article class="panel hero"><div><span class="tag">Health overview</span><div id="overall" class="status">—</div><p id="summary" class="speech"></p></div><div class="facts"><div><strong id="odometer">—</strong><span>odometer</span></div><div><strong id="freshness">—</strong><span>demo freshness</span></div><div><strong id="sampleCount">—</strong><span>samples</span></div></div></article>
+        <article class="panel"><div class="panel-head"><h2>Active alerts</h2><span class="count" id="alertCount">0</span></div><div id="alerts" class="muted"></div></article>
+      </div>
+      <div class="grid metrics-grid">
+        <article class="panel"><span class="tag">Hybrid system</span><div id="hybrid" class="metric">—</div><p class="muted">Performance signal, not pack-capacity SOH.</p></article>
+        <article class="panel"><span class="tag blue">12V battery</span><div id="battery12" class="metric">—</div><p class="muted">Resting-voltage and charge trend.</p></article>
+        <article class="panel"><span class="tag">Maintenance</span><div id="oil" class="metric">—</div><p id="maintenance" class="muted"></p></article>
+      </div>
+      <article class="terminal" aria-label="Synthetic vehicle event stream"><div class="terminal-bar"><div class="terminal-title"><span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong>RAMBO EVENT STREAM</strong><span>synthetic activity</span></div><span id="eventCount" class="terminal-count"></span></div><div class="terminal-body"><div id="events"></div><div class="terminal-prompt"><b>rambo ›</b><span>demo mode · waiting for next sample</span><i aria-hidden="true"></i></div></div></article>
+    </section>
+
+    <section id="battery" class="view">
+      <div class="section-title"><div><p class="eyebrow">Energy systems</p><h2>Battery Lab</h2></div><p>Separating hybrid performance from the conventional 12V system.</p></div>
+      <div class="grid two-grid"><article class="panel"><h3>12V state of charge</h3><div class="chart-legend"><i></i>State of charge %</div><svg id="socChart" class="chart" viewBox="0 0 600 190" preserveAspectRatio="none" aria-label="Synthetic 12V state of charge trend"></svg></article><article class="panel"><h3>12V voltage</h3><div class="chart-legend blue"><i></i>Voltage</div><svg id="voltageChart" class="chart" viewBox="0 0 600 190" preserveAspectRatio="none" aria-label="Synthetic 12V voltage trend"></svg></article></div>
+      <article class="panel boundary"><h3>Interpretation boundary</h3><p>Individual cloud snapshots are context dependent. The interface communicates trend evidence without presenting it as a definitive battery-capacity test.</p></article>
+    </section>
+
+    <section id="powertrain" class="view">
+      <div class="section-title"><div><p class="eyebrow">Powertrain telemetry</p><h2>Engine + Transmission</h2></div><p>Operating context and trends, without overclaiming diagnosis.</p></div>
+      <div class="grid metrics-grid"><article class="panel"><span class="tag">Engine</span><div id="engineState" class="metric">—</div><p id="engineDetail" class="muted"></p></article><article class="panel"><span class="tag blue">Cooling</span><div id="coolant" class="metric">—</div><p id="outside" class="muted"></p></article><article class="panel"><span class="tag amber">Transmission</span><div id="gear" class="metric">—</div><p id="torque" class="muted"></p></article></div>
+      <div class="grid two-grid"><article class="panel"><h3>Coolant temperature</h3><svg id="coolantChart" class="chart" viewBox="0 0 600 190" preserveAspectRatio="none" aria-label="Synthetic coolant temperature trend"></svg></article><article class="panel"><h3>Transmission torque</h3><svg id="torqueChart" class="chart" viewBox="0 0 600 190" preserveAspectRatio="none" aria-label="Synthetic transmission torque trend"></svg></article></div>
+    </section>
+
+    <section id="diagnostics" class="view">
+      <div class="section-title"><div><p class="eyebrow">Timestamped evidence</p><h2>Warnings + Codes</h2></div><p>Preserving reported events without pretending cloud telemetry replaces an onboard scan.</p></div>
+      <div class="grid metrics-grid"><article class="panel"><span class="tag">Current</span><div class="metric good">0</div><p class="muted">Active synthetic warnings</p></article><article class="panel"><span class="tag blue">History</span><div class="metric">2</div><p class="muted">Demonstration events</p></article><article class="panel"><span class="tag amber">Boundary</span><div class="metric compact">Screening</div><p class="muted">Confirm failures with service diagnostics.</p></article></div>
+      <article class="panel"><div class="table-wrap"><table><thead><tr><th>Observed</th><th>Severity</th><th>System / code</th><th>Message</th><th>Mileage</th></tr></thead><tbody id="diagnosticRows"></tbody></table></div></article>
+    </section>
+
+    <section id="architecture" class="view">
+      <div class="section-title"><div><p class="eyebrow">Privacy by architecture</p><h2>Production Boundary</h2></div><p>The public demo and authenticated collector are intentionally different products.</p></div>
+      <div class="architecture-flow" aria-label="Architecture flow">
+        <article><span>01</span><h3>Authorized API</h3><p>Read-only customer consent and scoped access.</p></article><b>→</b><article><span>02</span><h3>Local collector</h3><p>Tokens and raw responses stay owner-only.</p></article><b>→</b><article><span>03</span><h3>Minimized model</h3><p>Only health signals needed by the UI.</p></article><b>→</b><article><span>04</span><h3>Private access</h3><p>Encrypted tailnet access; no public collector.</p></article>
+      </div>
+      <article class="panel boundary"><h3>This published demo</h3><p>Static HTML, CSS, JavaScript, and synthetic values. No authentication client, credentials, vehicle identifiers, coordinates, raw responses, private history, or remote commands are present.</p></article>
+    </section>
+
+    <footer><span>Synthetic portfolio demonstration</span><span>Dependency-free · Responsive · Privacy-first</span></footer>
+  </main>
+</body>
+</html>

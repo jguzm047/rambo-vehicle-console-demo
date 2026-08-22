@@ -1,0 +1,11 @@
+{
+  "name": "rambo-vehicle-console-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "check": "node scripts/verify-public.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

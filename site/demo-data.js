@@ -8,7 +8,14 @@ window.RAMBO_DEMO_DATA = Object.freeze({
   alerts: [],
   hybrid: "NORMAL",
   primaryBattery: { soc: 73, voltage: 12.54 },
-  maintenance: { oilLife: 81, coolantC: 91, outsideC: 24.5 },
+  maintenance: { oilLife: 81, coolantC: 91, outsideC: 24.5, fuelLevel: 62 },
+  tires: [
+    { wheel: "Front left", kpa: 241, placardKpa: 240 },
+    { wheel: "Front right", kpa: 243, placardKpa: 240 },
+    { wheel: "Rear left", kpa: 240, placardKpa: 240 },
+    { wheel: "Rear right", kpa: 242, placardKpa: 240 }
+  ],
+  repair: { component: "Front suspension service", mileage: 40000, note: "Synthetic post-service trend baseline." },
   engine: { state: "RUNNING", rpm: 1380 },
   transmission: { gear: "DRIVE", torqueNm: 86 },
   trends: {

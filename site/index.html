@@ -31,16 +31,20 @@
       </div>
       <div class="grid metrics-grid">
         <article class="panel"><span class="tag">Hybrid system</span><div id="hybrid" class="metric">—</div><p class="muted">Performance signal, not pack-capacity SOH.</p></article>
-        <article class="panel"><span class="tag blue">12V battery</span><div id="battery12" class="metric">—</div><p class="muted">Resting-voltage and charge trend.</p></article>
-        <article class="panel"><span class="tag">Maintenance</span><div id="oil" class="metric">—</div><p id="maintenance" class="muted"></p></article>
+        <article class="panel"><span class="tag blue">12V battery</span><div id="battery12" class="metric">—</div><p id="batteryRating" class="reading-status"></p><p class="fine">Synthetic resting reading.</p></article>
+        <article class="panel"><span class="tag">Suspension baseline</span><div class="metric">2,184.6<small> mi</small></div><p class="muted">Since synthetic service baseline.</p></article>
+      </div>
+      <div class="grid health-grid">
+        <article class="panel"><h2>Tire pressure &amp; balance</h2><div id="tires" class="tires"></div><p id="tireSpread" class="muted"></p><p id="tireRating" class="reading-status"></p><p class="fine">Check tires cold. The driver-door placard is the final authority.</p></article>
+        <div class="overview-stack"><article class="panel maintenance-compact"><h2>Maintenance</h2><div class="maintenance-grid"><div><strong id="oil">—</strong><span>oil life</span><small id="oilGuide"></small></div><div><strong id="maintenanceCoolant">—</strong><span>coolant</span><small id="coolantGuide"></small></div><div><strong id="fuel">—</strong><span>fuel</span><small id="fuelGuide"></small></div></div></article><article class="panel"><h2>Repair history</h2><div class="repair"><strong id="repairComponent"></strong><span id="repairMileage" class="muted"></span><p id="repairNote"></p></div></article></div>
       </div>
       <article class="terminal" aria-label="Synthetic vehicle event stream"><div class="terminal-bar"><div class="terminal-title"><span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong>RAMBO EVENT STREAM</strong><span>synthetic activity</span></div><span id="eventCount" class="terminal-count"></span></div><div class="terminal-body"><div id="events"></div><div class="terminal-prompt"><b>rambo ›</b><span>demo mode · waiting for next sample</span><i aria-hidden="true"></i></div></div></article>
     </section>
 
     <section id="battery" class="view">
       <div class="section-title"><div><p class="eyebrow">Energy systems</p><h2>Battery Lab</h2></div><p>Separating hybrid performance from the conventional 12V system.</p></div>
-      <div class="grid two-grid"><article class="panel"><h3>12V state of charge</h3><div class="chart-legend"><i></i>State of charge %</div><svg id="socChart" class="chart" viewBox="0 0 600 190" preserveAspectRatio="none" aria-label="Synthetic 12V state of charge trend"></svg></article><article class="panel"><h3>12V voltage</h3><div class="chart-legend blue"><i></i>Voltage</div><svg id="voltageChart" class="chart" viewBox="0 0 600 190" preserveAspectRatio="none" aria-label="Synthetic 12V voltage trend"></svg></article></div>
-      <article class="panel boundary"><h3>Interpretation boundary</h3><p>Individual cloud snapshots are context dependent. The interface communicates trend evidence without presenting it as a definitive battery-capacity test.</p></article>
+      <div class="grid two-grid"><article class="panel"><h3>12V state of charge</h3><div class="chart-legend"><i></i>State of charge % · 50%+ preferred</div><svg id="socChart" class="chart" viewBox="0 0 600 190" preserveAspectRatio="none" aria-label="Synthetic 12V state of charge trend"></svg></article><article class="panel"><h3>12V voltage</h3><div class="chart-legend blue"><i></i>Voltage · resting target 12.6+ V</div><svg id="voltageChart" class="chart" viewBox="0 0 600 190" preserveAspectRatio="none" aria-label="Synthetic 12V voltage trend"></svg><div class="reading-guide"><div><b>12.6+ V</b><span>Healthy</span></div><div><b>12.2–12.5 V</b><span>Fair</span></div><div class="watch"><b>11.9–12.1 V</b><span>Low</span></div><div class="bad"><b>Below 11.9 V</b><span>Very low</span></div></div></article></div>
+      <article class="panel boundary"><h3>Interpretation boundary</h3><p>Ranges apply to a rested 12V battery with the vehicle off. A single low snapshot is a reason to monitor or test—not proof of battery failure.</p></article>
     </section>
 
     <section id="powertrain" class="view">

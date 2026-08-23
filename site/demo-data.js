@@ -33,7 +33,14 @@ window.RAMBO_DEMO_DATA = Object.freeze({
     { time: "14:27:03", kind: "BASELINE", tone: "note", message: "2,184.6 mi accumulated since synthetic service baseline" }
   ],
   diagnostics: [
-    { observed: "Jul 18, 2026 · 09:14", severity: "Watch", code: "DEMO_12V_LOW", system: "12V battery", message: "Synthetic resting-voltage threshold crossed; cleared on next drive.", mileage: 41702.1 },
-    { observed: "Jun 02, 2026 · 16:51", severity: "Watch", code: "DEMO_TIRE_SPREAD", system: "Tires", message: "Synthetic pressure spread exceeded the screening threshold.", mileage: 40884.7 }
-  ]
+    { observed: "Jul 18, 2026 · 09:14", resolved: "Jul 18 · 09:51", severity: "Watch", code: "DEMO_12V_LOW", system: "12V battery", message: "Synthetic resting-voltage threshold crossed; cleared on next drive.", action: "Monitor the next resting readings; test the battery if this repeats.", recurrences: 2, mileage: 41702.1 },
+    { observed: "Jun 02, 2026 · 16:51", resolved: "Jun 03 · 08:20", severity: "Watch", code: "DEMO_TIRE_SPREAD", system: "Tires", message: "Synthetic pressure spread exceeded the screening threshold.", action: "Recheck all four tires cold and correct them to the door placard.", recurrences: 1, mileage: 40884.7 }
+  ],
+  trips: [
+    { when: "Aug 21 · Evening", miles: 28.4, mpg: 41.2, electricPercent: 18, regenerated: 9.4, maxCoolantC: 93, status: "Strong", insight: "Best efficiency this week; temperature remained stable." },
+    { when: "Aug 20 · Morning", miles: 4.1, mpg: 27.8, electricPercent: 9, regenerated: 1.1, maxCoolantC: 72, status: "Review", insight: "Short cold-start trip lowered efficiency and added little 12V recovery time." },
+    { when: "Aug 19 · Afternoon", miles: 17.6, mpg: 38.9, electricPercent: 15, regenerated: 5.8, maxCoolantC: 91, status: "Normal", insight: "Typical mixed-driving baseline with no anomalies." },
+    { when: "Aug 18 · Evening", miles: 11.3, mpg: 35.4, electricPercent: 21, regenerated: 4.7, maxCoolantC: 90, status: "Normal", insight: "Highest electric contribution in the current sample." }
+  ],
+  tripSummary: { weeklyMpg: 37.6, priorWeeklyMpg: 35.4, shortTripCount: 5, totalMiles: 126.8 }
 });

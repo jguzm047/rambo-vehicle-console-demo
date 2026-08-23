@@ -20,6 +20,7 @@
       <button class="active" data-view="overview">Overview</button>
       <button data-view="battery">Battery</button>
       <button data-view="powertrain">Engine + Trans</button>
+      <button data-view="trips">Trips</button>
       <button data-view="diagnostics">Diagnostics</button>
       <button data-view="architecture">Architecture</button>
     </nav>
@@ -55,8 +56,15 @@
 
     <section id="diagnostics" class="view">
       <div class="section-title"><div><p class="eyebrow">Timestamped evidence</p><h2>Warnings + Codes</h2></div><p>Preserving reported events without pretending cloud telemetry replaces an onboard scan.</p></div>
-      <div class="grid metrics-grid"><article class="panel"><span class="tag">Current</span><div class="metric good">0</div><p class="muted">Active synthetic warnings</p></article><article class="panel"><span class="tag blue">History</span><div class="metric">2</div><p class="muted">Demonstration events</p></article><article class="panel"><span class="tag amber">Boundary</span><div class="metric compact">Screening</div><p class="muted">Confirm failures with service diagnostics.</p></article></div>
-      <article class="panel"><div class="table-wrap"><table><thead><tr><th>Observed</th><th>Severity</th><th>System / code</th><th>Message</th><th>Mileage</th></tr></thead><tbody id="diagnosticRows"></tbody></table></div></article>
+      <div class="grid metrics-grid"><article class="panel"><span class="tag">Current</span><div class="metric good">0</div><p class="muted">Active synthetic warnings</p></article><article class="panel"><span class="tag blue">History</span><div class="metric">2</div><p class="muted">Resolved events retained with timestamps.</p></article><article class="panel"><span class="tag amber">Boundary</span><div class="metric compact">Screening</div><p class="muted">Confirm failures with service diagnostics.</p></article></div>
+      <article class="panel"><div class="panel-head"><h2>Warning timeline</h2><span class="muted">Synthetic events</span></div><div class="table-wrap"><table><thead><tr><th>First observed</th><th>Resolved</th><th>Severity</th><th>System / code</th><th>What happened</th><th>Recommended action</th><th>Repeats</th><th>Mileage</th></tr></thead><tbody id="diagnosticRows"></tbody></table></div></article>
+    </section>
+
+    <section id="trips" class="view">
+      <div class="section-title"><div><p class="eyebrow">Drive-level intelligence</p><h2>Trip Insights</h2></div><p>Turning trip telemetry into efficiency, charging, and temperature patterns worth acting on.</p></div>
+      <div class="grid metrics-grid"><article class="panel"><span class="tag">Weekly efficiency</span><div id="weeklyMpg" class="metric">—</div><p id="mpgChange" class="reading-status"></p></article><article class="panel"><span class="tag blue">Distance observed</span><div id="tripMiles" class="metric">—</div><p class="muted">Synthetic weekly sample.</p></article><article class="panel"><span class="tag amber">Short trips</span><div id="shortTrips" class="metric">—</div><p class="muted">Can reduce efficiency and 12V recovery time.</p></article></div>
+      <article class="panel insight-callout"><span class="tag blue">Agent insight</span><p id="tripInsight"></p></article>
+      <article class="panel"><div class="panel-head"><h2>Trips worth knowing about</h2><span class="muted">Synthetic examples</span></div><div class="table-wrap"><table><thead><tr><th>Trip</th><th>Miles</th><th>MPG</th><th>Electric share</th><th>Regenerated</th><th>Max coolant</th><th>Status</th><th>Why it matters</th></tr></thead><tbody id="tripRows"></tbody></table></div></article>
     </section>
 
     <section id="architecture" class="view">
